@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculo</title>
+</head>
+<body>
+    <h1>Minhas Informações</h1>
+    <section>
+    <h2>Dados Pessoais</h2>
+<img src="img/pamera.jpg" alt="Eu com vestido de fundo rosa de renda, sentada ao piano com as mãos sobre o teclado olhando para a câmera e sorrindo">
+<figcaption>Minha foto de perfil</figcaption>
+<h3>Nome Completo</h3>
+<pre th:text="${nome}"></pre>
+<h3>Data De Nascimento</h3>
+<pre th:text="${dataNasc}"></pre>
+</section>
+
+<hr>
+
+<section>
+    <h2>Cursos</h2>
+<table align='center'>
+<tr align='center'>
+    <th>Curso</th>
+    <th>Instituição</th>
+    <th>Período de Realização</th>
+    <th>Assuntos Abordados</th>
+</tr>
+<tr align='center'>
+    <td th:text="${curso}"></td>
+    <td th:text="${instituicao}"></td>
+    <td th:text="${periodo}"></td>
+    <td th:text="${assuntosAbordados}"></td>
+</tr>
+<tr align='center'>
+    <td th:text="${curso2}"></td>
+    <td th:text="${instituicao2}"></td>
+    <td th:text="${periodo2}"></td>
+    <td th:text="${assuntosAbordados2}"></td>
+</tr>
+</table>
+</section>
+
+<hr>
+
+<section>
+    <h2>Profissão</h2>
+<pre th:text="${profissao}"></pre>
+</section>
+
+<hr>
+
+<section>
+    <footer>
+        <h2>Entre Em Contato</h2>
+        <a th:text="${linkedIn}" href="https://www.linkedin.com/in/pamera-n%C3%A1tali-57ba8920b/"></a>
+        <a th:text="${github}" href="https://github.com/Pamera-png"></a>
+        
+        <form action="https://www.google.com" method="GET"> 
+        <h3>Deixe Sua Mensagem</h3>
+        <pre th:text="${mensagem}"></pre>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">    
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome">
+        <label for="mensagem">Mensagem</label>
+        <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+        <input type="submit" value="enviar formulário" onclick = "enviar()">                              
+    </form>        
+    <a th:text="${rodape}" href="https://www.google.com"></a>
+    </footer>
+</section>
+</body>
+</html>    
