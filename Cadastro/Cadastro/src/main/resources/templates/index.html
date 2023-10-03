@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+<h1>Formulário de Cadastro</h1>
+
+<form th:object="${dados}" method="post">
+<label for="nome">Nome</label>
+<input type="text" name="nome" th:field="*{nome}" id="nome" >
+<label for="email">Email</label>
+<input type="email" th:field="*{email}" name="email" id="email">
+<label for="telefone">Telefone</label>
+<input type="tel" th:field="*{telefone}" name="telefone" id="telefone">
+<label for="dataNasc">dataNasc</label>
+<input type="date" th:field="*{dataNasc}" name="nascimento" id="nascimento">
+<label for="senha">Senha</label>
+<input type="password" th:field="*{senha}" name="senha" id="senha">
+<label for="senhaRepetir">Repetir Senha</label>
+<input type="password" th:field="*{repetirSenha}" name="senhaRepetir" id="senhaRepetir">
+<label for="descricao">Descrição</label>
+<textarea name="descricao" th:field="*{descricao}" id="descricao" cols="30" rows="10"></textarea>
+<label for="numero">Número</label>
+<input type="number" th:field="*{numero}">
+
+<label for="peso">Peso</label>
+<input type="text" th:field="*{peso}" name="peso" id="peso" >
+<label for="altura">Altura</label>
+                                      <input type="text" th:field="*{altura}" name="altura" id="altura" >
+
+<label for="genero">Gênero</label>
+<label for="naoInformar">Não informar</label>
+<input type="radio" th:field="*{genero}" name="genero" id="naoInformar" value="naoInformar">
+<label for="masculino">Masculino</label>
+<input type="radio" th:field="*{genero}" name="genero" id="masculino" value="masculino">
+<label for="feminino">Feminino</label>
+<input type="radio" th:field="*{genero}" name="genero" id="feminino" value="feminino">
+<label for="outro">Outro</label>
+<input type="radio" th:field="*{genero}" name="genero" id="outro" value="outro">
+
+<label for="interesses">Interesses</label>
+<label for="tecnologia">Tecnologia</label>
+<input type="checkbox" class="tecnologia" id="tecnologia" value="sim">
+<label for="esportes">Esportes</label>
+<input type="checkbox" class="esportes" id="esportes" value="sim">
+<label for="gastronomia">Gastronomia</label>
+<input type="checkbox" class="gastronomia" id="gastronomia" value="sim">
+<label for="viagens">Viagens</label>
+<input type="checkbox" class="viagens" id="viagens" value="sim">
+<label for="investimentos">Investimentos</label>
+<input type="checkbox" class="investimentos" id="investimentos" value="sim">
+<input type="submit" value="enviar formulário">                              
+
+</form>
+</body>
+</html>
