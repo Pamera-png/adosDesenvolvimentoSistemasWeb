@@ -7,30 +7,30 @@ xmlns:th="http://www.w3.org/1999/xhtml">
     <title>Cadastro</title>
 </head>
 <body>
-<h1>Formulário de Cadastro</h1>
+<h1>Formulário de CadastroTeste</h1>
 
 <form th:object="${dados}" method="post">
 <label for="nome">Nome</label>
-<input type="text" name="nome" th:field="*{nome}" id="nome" >
+<input type="text" th:field="*{nome}" name="nome" id="nome" required maxlength="100" placeholder="no máximo 100 caracteres">
 <label for="email">Email</label>
-<input type="email" th:field="*{email}" name="email" id="email">
+<input type="email" th:field="*{email}" name="email" id="email" required maxlength="100" placeholder="no máximo 100 caracteres">
 <label for="telefone">Telefone</label>
 <input type="tel" th:field="*{telefone}" name="telefone" id="telefone">
 <label for="dataNasc">dataNasc</label>
-<input type="date" th:field="*{dataNasc}" name="nascimento" id="nascimento">
+<input type="date" th:field="*{dataNasc}" name="nascimento" id="nascimento" required>
 <label for="senha">Senha</label>
-<input type="password" th:field="*{senha}" name="senha" id="senha">
+<input type="password" th:field="*{senha}" name="senha" id="senha" required>
 <label for="senhaRepetir">Repetir Senha</label>
-<input type="password" th:field="*{repetirSenha}" name="senhaRepetir" id="senhaRepetir">
+<input type="password" th:field="*{repetirSenha}" name="senhaRepetir" id="senhaRepetir" required>
 <label for="descricao">Descrição</label>
 <textarea name="descricao" th:field="*{descricao}" id="descricao" cols="30" rows="10"></textarea>
 <label for="numero">Número</label>
-<input type="number" th:field="*{numero}">
+<input type="number" th:field="*{numero}" min="1" max="99">
 
-<label for="peso">Peso</label>
-<input type="text" th:field="*{peso}" name="peso" id="peso" >
-<label for="altura">Altura</label>
-                                      <input type="text" th:field="*{altura}" name="altura" id="altura" >
+<label for="peso">Peso (quilogramas)</label>
+<input type="number" th:field="*{peso}" name="peso" id="peso" step="0.1" min="0">
+<label for="altura">Altura (metros)</label>
+                                      <input type="number" th:field="*{altura}" name="altura" id="altura" step="0.01" min="0">
 
 <label for="genero">Gênero</label>
 <label for="naoInformar">Não informar</label>
@@ -43,16 +43,11 @@ xmlns:th="http://www.w3.org/1999/xhtml">
 <input type="radio" th:field="*{genero}" name="genero" id="outro" value="outro">
 
 <label for="interesses">Interesses</label>
-<label for="tecnologia">Tecnologia</label>
-<input type="checkbox" class="tecnologia" id="tecnologia" value="sim">
-<label for="esportes">Esportes</label>
-<input type="checkbox" class="esportes" id="esportes" value="sim">
-<label for="gastronomia">Gastronomia</label>
-<input type="checkbox" class="gastronomia" id="gastronomia" value="sim">
-<label for="viagens">Viagens</label>
-<input type="checkbox" class="viagens" id="viagens" value="sim">
-<label for="investimentos">Investimentos</label>
-<input type="checkbox" class="investimentos" id="investimentos" value="sim">
+<div th:each="interesse : ${dados.interesses}">
+<label th:for="${'interesse-' + interesse}" th:text="${interesse}"></label>
+    <input type="checkbox" class="interesse" th:id="${'interesse-' + interesse}" th:value="${interesse}" th:field="*{interesses}" />
+    </div>
+    
 <input type="submit" value="enviar formulário">                              
 
 </form>
