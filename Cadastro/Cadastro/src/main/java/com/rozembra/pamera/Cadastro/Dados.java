@@ -11,6 +11,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Dados {
 
 	@NotEmpty(message = "Campo nome é obrigatório")
@@ -24,6 +26,7 @@ public class Dados {
 	private long telefone;
 
 	@NotNull(message = "Campo dataNasc é obrigatório.")
+	@DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
 	private Date dataNasc;
 
 	@NotEmpty(message = "Campo senha é obrigatório")
